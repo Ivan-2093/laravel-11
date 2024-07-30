@@ -1,0 +1,5 @@
+artisan
+    >php artisan --help
+example
+    >php artisan route:list
+    >php artisan r:l  

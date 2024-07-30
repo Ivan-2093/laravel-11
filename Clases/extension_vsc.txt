@@ -1,0 +1,9 @@
+Extension VS Code
+-Laravel Blade Formatter
+-Laravel Blade Snippet 
+-Laravel goto view
+-laravel snippets
+-Php Intelephense
+-Tailwind CSS IntelliSense
+-Alpine.js IntelliSense
+-Github Copilot (Pago)

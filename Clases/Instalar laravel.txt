@@ -1,0 +1,14 @@
+Instalar lo siguuiente:
+    -PHP
+        >php --version :  PHP 7.4.29 (cli) (built: Apr 12 2022 20:21:18) ( ZTS Visual C++ 2017 x64 )
+    -Composer: 
+        >comporser -V : Composer version 2.4.0 2022-08-16 16:10:48
+        -Instalador de Laravel
+            > composer global require laravel/installer
+            > laravel --version
+            > laravel new example-app : "Crea un proyecto"
+            > php artisan --version : Laravel Framework 8.83.27
+    -Node JS
+        > node --version : v20.12.2
+    -NPM
+        >npm --version : 10.5.0

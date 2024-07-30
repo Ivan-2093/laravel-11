@@ -1,0 +1,27 @@
+Ejemplo creacion de template
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>@yield('title')</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="{{ route('Dasboard') }}">Home</a>
+            <a href="{{ route('Revista') }}">Blog</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        @yield('content')
+    </div>
+
+    <footer>
+        @yield('footer')
+    </footer>
+</body>
+
+</html>
