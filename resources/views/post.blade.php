@@ -1,24 +1,20 @@
 @extends('template')
-@section('title', 'Post Page')
+@section('title', $blogs->titulo)
 @section('content')
-<h1>Post</h1>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>TITULO</th>
-        </tr>
-    </thead>
-    <tbody>
 
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">{{ $blogs->titulo }}</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ $blogs->body }}</p>
+        <br>
+        <p class="card-text text-center text-wrap">Publicado por {{ $blogs->user->name }}</p>
+    </div>
+</div>
 
-        @foreach ($blogs as $row)
-        <tr>
-            <td>{{ $row['id'] }}</td>
-            <td>{{ $row['title'] }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+@endsection
 
+@section('footer')
+<p>&copy; 2024 My Website</p>
 @endsection

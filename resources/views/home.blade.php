@@ -20,13 +20,14 @@ $numbers = [1, 2, 3, 4, 5];
 
 @endsection
 
-
-
-
 @push('styles')
-<link rel="stylesheet" href="{{ asset('home.css') }}">
+
 @endpush
 
 @push('scripts')
-<script src="{{ asset('home.js') }}"></script>
+
 @endpush
+
+@section('footer')
+<p>&copy; 2024 My Website</p>
+@endsection

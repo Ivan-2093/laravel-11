@@ -1,48 +1,29 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-/**
- * Route::get | Consultar
- * Route::post | Guardar
- * Route::delete | Eliminar
- * Route::put | Actualizar
- */
 
+Route::controller(PageController::class)->group(function () {
+    Route::get('/', 'home')->name('home');
+    Route::get('/blog', 'blog')->name('blog');
 
+    ## Route Model Binding
+    // Esta ruta define que cualquier solicitud GET a /blog/{slug} ejecutará el método post en el controlador correspondiente.
+    // {post:slug} indica que Laravel debe buscar un Post cuyo campo slug coincida con el valor proporcionado en la URL.
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('/blog/{post:slug}', 'post')->name('post');
 });
 
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/Home', function () {
-    return view('home');
-})->name('Dasboard');
-
-Route::get('blogs', function () {
-
-    $blogs = [
-        ['id' => 0, 'title' => 'Animales'],
-        ['id' => 1, 'title' => 'Frutas'],
-    ];
-
-    return view('blog', ['blogs' => $blogs]);
-})->name('Revista');
-
-Route::get('blogs/{idBlog}', function ($idBlog) {
-
-    $blogs = [
-        ['id' => 0, 'title' => 'Animales'],
-        ['id' => 1, 'title' => 'Frutas'],
-    ];
-
-    return view('post', ['blogs' => [$blogs[$idBlog]]]);
+Route::middleware('auth')->group(function () {
+    Route::resource('posts', PostController::class)->except('show');
 });
 
-Route::get('buscar', function (Request $request) {
-    return $request->all();
-    //{"query":"php"}
-});
+
+require_once __DIR__ . '/auth.php';

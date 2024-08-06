@@ -1,5 +1,11 @@
 artisan
     >php artisan --help
-example
+
+#Ver las rutas que tenemos
     >php artisan route:list
     >php artisan r:l  
+
+#El siguiente codigo creara el modelo, controlador y factory
+    >php artisan make:model Post -mcf --resource
+
+#
