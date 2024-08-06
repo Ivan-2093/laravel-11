@@ -15,6 +15,7 @@
                         <thead>
                             <tr>
                                 <th>Titulo</th>
+                                <th>Autor</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
@@ -22,6 +23,7 @@
                         @foreach($posts as $post)
                         <tr class="border-b border-gray-200 text-sm">
                             <td class="px-6 py-4">{{ $post->titulo }}</td>
+                            <td class="px-6 py-4">{{ $post->user->name }}</td>
                             <td class="px-6 py-4">
                                 <a href=" {{ route('posts.edit', $post) }}">Editar</a>
                             </td>

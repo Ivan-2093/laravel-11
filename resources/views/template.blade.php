@@ -3,39 +3,46 @@
 
 <head>
     <title>@yield('title')</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-CGfJs9_S.css') }}">
     @stack('styles')
 </head>
 
 <body>
+    <div class="container px-4 mx-auto">
+        <header class="flex justify-between itmes-center py-4">
+            <div class="flex itmes-center flex-grow gap-4">
+                <a class="" href="{{ route('home') }}">
+                    <img src="{{ asset('image/logo.png') }}" alt="Logo" class="h-12">
+                </a>
+                <form action="">
+                    <input type="text" placeholder="Buscar">
+                </form>
+            </div>
+            @auth
+            <a class="" href="{{ route('dashboard') }}">dashboard</a>
+            @else
+            <a class="" href="{{ route('login') }}">Login</a>
 
-    <header>
-        <nav>
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('home') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('blog') }}">Blog</a>
-                </li>
-                @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}">dashboard</a>
-                </li>
-                @else
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
-                @endauth
+            @endauth
+        </header>
 
-            </ul>
-        </nav>
-    </header>
+        <div class="opacity-60 h-px mb-8" style="background: linear-gradient(to right,
+            rgba(200,200,200,0) 0%,
+            rgba(200,200,200,1) 30%,
+            rgba(200,200,200,1) 70%,
+            rgba(200,200,200,0) 100%)">
 
-    <div class="container">
-        @yield('content')
+        </div>
+
+
+        <div class="container px-4 mx-auto">
+            @yield('content')
+        </div>
+
+        <p class="py-16">
+            <img src="{{ asset('image/logo.png') }}" alt="logo de laravel" class="h-12 mx-auto">
+        </p>
     </div>
-
     <footer>
         @yield('footer')
     </footer>
