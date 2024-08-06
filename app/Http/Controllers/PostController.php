@@ -60,7 +60,7 @@ class PostController extends Controller
             'body' => $request->body,
         ]);
 
-        return redirect()->route('posts.edit', $post);
+        return redirect()->route('posts.index');
     }
 
 
