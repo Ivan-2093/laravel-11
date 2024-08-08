@@ -9,16 +9,11 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('home');
-    }
-    public function blog()
-    {
         //$posts = Post::get();
         //El método latest() en Eloquent es un atajo para ordenar por una columna de fecha en orden descendente. Por defecto, utiliza la columna created_at. 
         //$posts = Post::latest()->paginate(5);
-        //
         $posts = Post::orderBy('titulo', 'asc')->paginate(5);
-        return view('blog', ['blogs' => $posts]);
+        return view('home', ['blogs' => $posts]);
     }
     ## Route Model Binding
     public function post(Post $post)

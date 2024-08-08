@@ -3,7 +3,7 @@
 
 <head>
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('build/assets/app-CGfJs9_S.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
     @stack('styles')
 </head>
 
