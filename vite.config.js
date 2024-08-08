@@ -11,4 +11,14 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        rollupOptions: {
+            output: {
+                // Configuración para mantener nombres de archivos fijos
+                assetFileNames: 'assets/[name].[ext]', // Esto garantiza que el archivo CSS tenga un nombre fijo
+                entryFileNames: 'assets/[name].js',
+                chunkFileNames: 'assets/[name].js',
+            },
+        },
+    },
 });
