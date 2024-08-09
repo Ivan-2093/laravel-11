@@ -3,6 +3,10 @@
 
 @section('content')
 
+@if (config('debugbar.enabled'))
+{!! \Barryvdh\Debugbar\Facade::render() !!}
+@endif
+
 <div class="bg-gray-900 px-20 py-16 rounded-lg mb-8 relative overflow-hidden">
     <span class="text-xs uppercase text-gray-700 bg-gray-400 rounded-full px-2 py-1">Programación</span>
     <h1 class="text-3xl text-white mt-4">Blog</h1>
@@ -19,6 +23,9 @@
                 <span>{{ $blog->created_at->format('d/m/Y') }}</span>
             </p>
             <h2 class="text-lg text-gray-900 mt-2">{{ $blog->titulo }}</h2>
+            <div class="text-xs text-gray-900 opacity-75 flex items-center gap-1">
+                {{ $blog->user->name }}
+            </div>
         </a>
         @endforeach
     </div>

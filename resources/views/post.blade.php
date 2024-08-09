@@ -2,16 +2,13 @@
 @section('title', $blogs->titulo)
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-        <h5 class="card-title">{{ $blogs->titulo }}</h5>
-    </div>
-    <div class="card-body">
-        <p class="card-text">{{ $blogs->body }}</p>
-        <br>
-        <p class="card-text text-center text-wrap">Publicado por {{ $blogs->user->name }}</p>
-    </div>
+<div class="max-w-3xl mx-auto">
+    <h1 class="text-5xl mb-8">{{ $blogs->titulo }}</h1>
+    <p class="leading-loose text-lg text-gray-700">
+        {{ $blogs->body }}
+    </p>
 </div>
+
 
 @endsection
 

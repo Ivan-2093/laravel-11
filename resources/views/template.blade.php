@@ -14,8 +14,36 @@
                 <a class="" href="{{ route('home') }}">
                     <img src="{{ asset('image/logo.png') }}" alt="Logo" class="h-12">
                 </a>
-                <form action="">
-                    <input type="text" placeholder="Buscar">
+                <form action="{{ route('home') }}" method="GET">
+                    <div class="space-y-12">
+
+
+                        <div class="border-b border-gray-900/10 pb-12">
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-12">
+                                <div class="md:col-span-6">
+                                    <label for="autor" class="block text-sm font-medium leading-6 text-gray-900">Autor</label>
+                                    <div class="mt-2">
+                                        <select id="autor" name="autor" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                            <option value="">Seleccione un autor</option>
+                                            @foreach($users as $user)
+                                            <option value="{{ $user->id }}" {{ request('autor') == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="md:col-span-3">
+                                    <label for="search" class="block text-sm font-medium leading-6 text-gray-900">Descripción</label>
+                                    <div class="mt-2">
+                                        <input type="text" id="search" name="search" placeholder="Buscar" value=" {{ request('search') }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
             @auth
